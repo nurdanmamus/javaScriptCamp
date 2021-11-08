@@ -1,9 +1,8 @@
 
 //finding prime numbers
 const isPrime    = "is a prime number";
-const isNotPrime = "is not a prime number"; 
+const isNotPrime = "is not a prime number";  
  
-
 function findPrime(...numbers) {  
     let prime;
     for (let i = 0; i < numbers.length; i++) {
@@ -24,7 +23,7 @@ function findPrime(...numbers) {
 
 findPrime(45,2,7,29,8,3,10,21,975)     
 
-//finding friend numbers, single responsibility
+//finding friend numbers using single responsibility  
 
 let findSubMultibles = (number) => {  
    let subMultibles = new Array();   
@@ -43,10 +42,8 @@ let sumOfSubMultibles = (numbers)=>{
     }
     return total; 
 }
-
-//console.log(findSubMultibles(6)); 
-//console.log(sumOfSubMultibles(findSubMultibles(6)));     
-
+  
+// question 2, friend numberss   
 function findFriendNumbers(number1,number2) {
 
     if (sumOfSubMultibles(findSubMultibles(number1))
@@ -54,13 +51,12 @@ function findFriendNumbers(number1,number2) {
          console.log("Friend Numbersss"); 
     }else{
         console.log("Not friend numbers");
-    }  
-    //console.log(sumOfSubMultibles(findSubMultibles(number1))) 
-    //console.log(sumOfSubMultibles(findSubMultibles(number2)))      
+    }       
 } 
 
 findFriendNumbers(220,284);  
 
+//Question 3 , all perfect number up to 1000 
 const listPerfectNumber = (upperBound=1000)=>{ 
   for (let i = 1; i < upperBound; i++) { 
        if (sumOfSubMultibles(findSubMultibles(i))==i) {  
@@ -71,7 +67,7 @@ const listPerfectNumber = (upperBound=1000)=>{
 
 listPerfectNumber();    
 
-//All prime numbers up to 1000
+//question 4, All prime numbers up to 1000 
 
 const listPrimeNumber = (upperBound=1000)=>{ 
     let prime;
@@ -81,7 +77,7 @@ const listPrimeNumber = (upperBound=1000)=>{
         for(var j=2; j<sqrtnum+1; j++) { // sqrtnum+1
             if(i % j == 0) {
                 prime = false;     
-               // console.log(numbers[i] + isNotPrime)       
+    
                 break;             
             }
         }         
@@ -91,14 +87,5 @@ const listPrimeNumber = (upperBound=1000)=>{
     }
 }
 
-listPrimeNumber();
+listPrimeNumber(); 
 
-//console.log(findPrime(45,2,7));     
-//console.log(isPrime2(56));    
-
-//console.log(214);
-
-    
-
-
-//finding perfenct number
