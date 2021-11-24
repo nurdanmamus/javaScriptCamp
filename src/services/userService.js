@@ -14,8 +14,8 @@ export default class UserService { //userService'i import ettiğimde default ola
     }
 
     checkForAge(user){   
-        if (!Number.isInteger(user.age)) { 
-            this.errors.push(new DataError(`Validation problem. ${user.age} is not a number`, user))
+        if (!Number.isInteger(user.age)) {  
+           return this.errors.push(new DataError(`Validation problem. ${user.age} is not a number`, user))
         } else{
             return true 
         }

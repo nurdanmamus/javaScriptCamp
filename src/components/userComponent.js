@@ -31,7 +31,7 @@ console.log(customer.lastName)*/
 console.log("------------")
 
 userService.loadForCustomer(users)   
-userService.listCustomers() 
+userService.listCustomers()  
 //userService1.loadForEmployee(users) 
 
 //userService.checkTypes()     
