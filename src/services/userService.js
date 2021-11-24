@@ -13,17 +13,26 @@ export default class UserService { //userService'i import ettiğimde default ola
         //  const yup = require("yup"); 
     }
 
-    static checkForAge(user){  
+    checkForAge(user){   
         if (!Number.isInteger(user.age)) { 
             this.errors.push(new DataError(`Validation problem. ${user.age} is not a number`, user))
-        } 
+        } else{
+            return true 
+        }
     } 
 
-    static checkRequiredField(user,requiredFields) { 
-        if (!requiredFields.every(field => user.hasOwnProperty(field))) {
-            this.errors.push(
-                new DataError(`Validation problem. ${field} is required`, user))
-        }     
+    checkRequiredField(user,...requiredFields) {   
+      //  console.log(requiredFields)   
+        for (const field of requiredFields) { 
+            if (!user[field]) {  
+                this.errors.push( 
+                    new DataError(`Validation problem. ${field} is required`, user))
+            }
+        }   
+        // if (!requiredFields.filter(field => user.hasOwnProperty(field))) { 
+        //     this.errors.push(
+        //         new DataError(`Validation problem. ${field} is required`, user))
+        // }     
     }
 
     

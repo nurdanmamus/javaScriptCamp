@@ -19,7 +19,7 @@ export const users = [
         type: "customer"
     },
     {
-        id: 2,
+        id: 2,  
         firstName: "Mustafa",
         lastName: "Sansar",
         city: "İstanbul",
@@ -36,14 +36,14 @@ export const users = [
         age:20,
         type: "employee"
     },
-    {
-        id: 4,
+    { 
+        id: 4,   
         firstName: "Mücahit",
         lastName: "Kaya",
         city: "Bolu",
         age: 23,
-        salary:17000,
-        type: "employee"
+        salary:17000, 
+        type: "employee"     
     },
     {
         id: 5,

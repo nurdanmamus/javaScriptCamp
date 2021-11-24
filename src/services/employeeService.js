@@ -1,6 +1,6 @@
 import { users } from "../data/users.js";
 import DataError from "../models/dataError.js";
-import { EMPLOYEE, REQUARED_FIELD_FOR_EMPLOYEE } from "../data/types.js"; 
+import { CUSTOMER, EMPLOYEE, REQUARED_FIELD_FOR_EMPLOYEE } from "../data/types.js"; 
 import UserService from "./userService.js";
 
 
@@ -14,18 +14,19 @@ export default class employeeService  extends UserService{
         this.loggerService = loggerService        
     }
  
-    checkTypeForEmployee=(user)=>{   
+    checkTypeForEmployee(user){   s 
         //for (const user of users) {     
-            if (types.some(type=> type === user[EMPLOYEE])) {      
+            if (user["type"]===CUSTOMER) {        
                 //this.errors.push(new DataError("Wrong user type1", user));
+                //this.types.some(type=> type === 
                 return true;
             }  
        // }
     }
 
-    loadForEmployee(users,requiredFields){
+    loadForEmployee(users){   
         for (const user of users) {
-            if (checkTypeForEmployee && checkRequiredField(user,requiredFields)&&
+            if (this.checkTypeForEmployee && checkRequiredField(user,this.requiredFields)&&
             checkForAge(user)) {   
                 this.employees.push(user)
             }

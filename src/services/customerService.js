@@ -9,17 +9,21 @@ export default class customerService extends UserService{
         this.errors = [] 
         this.customers = []
         this.types  = [CUSTOMER] 
-        this.requiredFields =  [REQUARED_FIELD_FOR_CUSTOMER]
+        this.requiredFields =  [REQUARED_FIELD_FOR_CUSTOMER] 
         this.loggerService = loggerService  
               
     }
  
     checkTypeForCustomer(user){     
        // for (const user of users) {      
-            if (this.types.some(type=> type === user[CUSTOMER])) {     
+           /* if (this.types.find(function(){user["type"]===CUSTOMER})) {        
                 //this.errors.push(new DataError("Wrong user type1", user));
                 return true;
-            } 
+            }   */
+
+             if (user["type"]===CUSTOMER) {         
+                 return true; 
+            }  
        // }
     }
 
@@ -30,12 +34,12 @@ export default class customerService extends UserService{
     //     }     
     // }
 
-    loadForCustomer(users,requiredFields){    
+    loadForCustomer(users){         
         for (const user of users) {
-            if (this.checkTypeForCustomer(user) && checkRequiredField(user,requiredFields)&&
-            checkForAge(user)) { 
-                addCustomer(user) 
-            }
+            if (this.checkTypeForCustomer(user) && super.checkForAge(user)
+            && super.checkRequiredField(user,this.requiredFields)) {              
+                this.addCustomer(user)  
+            }           
         }
     }
 
@@ -44,8 +48,9 @@ export default class customerService extends UserService{
         this.loggerService.log(user)
     }
 
-    listCustomers() {  
-        return this.customers 
+    listCustomers() {   
+     //   return this.customers  
+        console.log(this.customers)
     } 
 
     getCustomerById(id) {
