@@ -10,13 +10,13 @@ export default class customerService extends UserService{
         this.loggerService = loggerService  
     }
  
-    checkTypeForCustomer=(users)=>{   
-        for (const user of users) {     
+    checkTypeForCustomer=(user)=>{   
+       // for (const user of users) {     
             if (this.types.some(type=> type === user[CUSTOMER])) {     
                 //this.errors.push(new DataError("Wrong user type1", user));
                 return true;
             } 
-        }
+       // }
     }
 
     // checkCustomerValidityForErrors1(user,requiredFields) { 
@@ -28,7 +28,7 @@ export default class customerService extends UserService{
 
     loadForCustomer(users,requiredFields){ 
         for (const user of users) {
-            if (checkTypeForCustomer && checkRequiredField(user,requiredFields)&&
+            if (checkTypeForCustomer(user) && checkRequiredField(user,requiredFields)&&
             checkForAge(user)) { 
                 addCustomer(user) 
             }
