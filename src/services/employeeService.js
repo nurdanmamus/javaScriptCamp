@@ -10,13 +10,13 @@ export default class employeeService  extends UserService{
         this.loggerService = loggerService 
     }
  
-    checkTypeForEmployee=(users)=>{   
-        for (const user of users) {     
+    checkTypeForEmployee=(user)=>{   
+        //for (const user of users) {     
             if (this.types.some(type=> type === user[EMPLOYEE])) {     
                 //this.errors.push(new DataError("Wrong user type1", user));
                 return true;
-            } 
-        }
+            }  
+       // }
     }
 
     loadForEmployee(users,requiredFields){
