@@ -5,15 +5,17 @@ import UserService from "./userService.js";
 
 export default class customerService extends UserService{
     constructor(loggerService){
+        super(loggerService) 
         this.errors = [] 
         this.customers = []
         this.types  = [CUSTOMER] 
         this.requiredFields =  [REQUARED_FIELD_FOR_CUSTOMER]
-        this.loggerService = loggerService        
+        this.loggerService = loggerService  
+              
     }
  
-    checkTypeForCustomer=(user)=>{   
-       // for (const user of users) {     
+    checkTypeForCustomer(user){     
+       // for (const user of users) {      
             if (this.types.some(type=> type === user[CUSTOMER])) {     
                 //this.errors.push(new DataError("Wrong user type1", user));
                 return true;
@@ -28,9 +30,9 @@ export default class customerService extends UserService{
     //     }     
     // }
 
-    loadForCustomer(users,requiredFields){ 
+    loadForCustomer(users,requiredFields){    
         for (const user of users) {
-            if (checkTypeForCustomer(user) && checkRequiredField(user,requiredFields)&&
+            if (this.checkTypeForCustomer(user) && checkRequiredField(user,requiredFields)&&
             checkForAge(user)) { 
                 addCustomer(user) 
             }
@@ -43,7 +45,7 @@ export default class customerService extends UserService{
     }
 
     listCustomers() {  
-        return this.customers
+        return this.customers 
     } 
 
     getCustomerById(id) {

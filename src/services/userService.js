@@ -4,22 +4,22 @@ import { EMPLOYEE,CUSTOMER } from "../data/types.js";
 
 export default class UserService { //userService'i import ettiğimde default olarak bu fonksiyonu import et
     constructor(loggerService) {
-         this.users = []  
+         this.users = []    
         // this.employees = []
-       //  this.customers = []  
+       //  this.customers = []   
        
-        this.errors = []
+        this.errors = [] 
         this.loggerService = loggerService 
         //  const yup = require("yup"); 
     }
 
-    checkForAge(user){  
+    static checkForAge(user){  
         if (!Number.isInteger(user.age)) { 
             this.errors.push(new DataError(`Validation problem. ${user.age} is not a number`, user))
         } 
     } 
 
-    checkRequiredField(user,requiredFields) { 
+    static checkRequiredField(user,requiredFields) { 
         if (!requiredFields.every(field => user.hasOwnProperty(field))) {
             this.errors.push(
                 new DataError(`Validation problem. ${field} is required`, user))
@@ -118,10 +118,10 @@ export default class UserService { //userService'i import ettiğimde default ola
     
 
 
-    list() {
+    static list() {
         // return this.users
     }
-    getById(id) {
+    static getById(id) {
         // return this.users.find(u => u.id === id) 
     }
 }

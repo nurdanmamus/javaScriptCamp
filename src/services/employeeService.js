@@ -6,6 +6,7 @@ import UserService from "./userService.js";
 
 export default class employeeService  extends UserService{
     constructor(loggerService){
+        super(loggerService)  
         this.errors = [] 
         this.employees = []
         this.types  = [EMPLOYEE]  
@@ -15,7 +16,7 @@ export default class employeeService  extends UserService{
  
     checkTypeForEmployee=(user)=>{   
         //for (const user of users) {     
-            if (this.types.some(type=> type === user[EMPLOYEE])) {     
+            if (types.some(type=> type === user[EMPLOYEE])) {      
                 //this.errors.push(new DataError("Wrong user type1", user));
                 return true;
             }  
