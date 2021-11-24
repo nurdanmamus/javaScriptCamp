@@ -1,48 +1,48 @@
 import { users } from "../data/users.js";
 import DataError from "../models/dataError.js";
-import { EMPLOYEE,CUSTOMER } from "../data/types.js";
+import { EMPLOYEE, CUSTOMER } from "../data/types.js";
 
 export default class UserService { //userService'i import ettiğimde default olarak bu fonksiyonu import et
     constructor(loggerService) {
-         this.users = []    
+        this.users = []
         // this.employees = []
-       //  this.customers = []   
-       
-        this.errors = [] 
-        this.loggerService = loggerService 
+        //  this.customers = []   
+
+        this.errors = []
+        this.loggerService = loggerService
         //  const yup = require("yup"); 
     }
 
-    checkForAge(user){   
-        if (!Number.isInteger(user.age)) {  
-           return this.errors.push(new DataError(`Validation problem. ${user.age} is not a number`, user))
-        } else{
-            return true 
+    checkForAge(user) {
+        if (!Number.isInteger(user.age)) {
+            return this.errors.push(new DataError(`Validation problem. ${user.age} is not a number`, user))
+        } else {
+            return true
         }
-    } 
+    }
 
-    checkRequiredField(user,...requiredFields) {         
-       // console.log(requiredFields)    
-        for (const field of requiredFields) { 
-            if (!user[field]) {       
-               return this.errors.push( 
+    checkRequiredField(user, ...requiredFields) {
+        // console.log(requiredFields)    
+        for (const field of requiredFields) {
+            if (!user[field]) {
+                return this.errors.push(
                     new DataError(`Validation problem. ${field} is required`, user))
-            }else{
-                return true   
+            } else {
+                return true
             }
-                
-        }   
+
+        }
         // if (!requiredFields.filter(field => user.hasOwnProperty(field))) { 
         //     this.errors.push(
         //         new DataError(`Validation problem. ${field} is required`, user))
         // }     
     }
 
-    
 
-    
 
-   
+
+
+
     // load() {
     //     for (const user of users) {
     //         switch (user.type) {
@@ -83,7 +83,7 @@ export default class UserService { //userService'i import ettiğimde default ola
     //     return hasErrors
     // }
 
-   
+
 
 
     // checkEmployeeValidityForErrors(user) {
@@ -125,16 +125,16 @@ export default class UserService { //userService'i import ettiğimde default ola
     // }
 
 
-   
-
-    
 
 
-    static list() {
-        // return this.users
+
+
+
+    list() { 
+        return this.users
     }
-    static getById(id) {
-        // return this.users.find(u => u.id === id) 
+    getById(id) {
+        return this.users.find(u => u.id === id)
     }
 }
 //sayfa componenti. sayfaya bunu dahil ederken let userService = new userService()
