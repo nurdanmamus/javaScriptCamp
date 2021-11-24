@@ -21,7 +21,7 @@ export default class UserService { //userService'i import ettiğimde default ola
         }
     } 
 
-    checkRequiredField(user,requiredFields) {        
+    checkRequiredField(user,...requiredFields) {         
        // console.log(requiredFields)    
         for (const field of requiredFields) { 
             if (!user[field]) {       
