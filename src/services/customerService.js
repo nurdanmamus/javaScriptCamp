@@ -22,9 +22,9 @@ export default class customerService extends UserService {
          }   */
 
         if (user["type"] === CUSTOMER) {
-            return true;
-        }
-        // }
+            return true;  
+        } 
+ 
     }
 
     // checkCustomerValidityForErrors1(user,requiredFields) { 
@@ -36,7 +36,7 @@ export default class customerService extends UserService {
 
     loadForCustomer(users) {
         for (const user of users) {
-            if (this.checkTypeForCustomer(user)) {
+            if (this.checkTypeForCustomer(user)) { 
                 if (super.checkForAge(user) &&
                     super.checkRequiredField(user, this.requiredFields)) {
                     this.addCustomer(user)
@@ -59,7 +59,7 @@ export default class customerService extends UserService {
     }
 
     getCustomersSorted(customers) {
-        let sortedCustomer = customers.slice().sort((a, b) => a.id - b.id);
+        let sortedCustomer = customers.sort((a, b) => a.id - b.id); 
         return sortedCustomer;
         // return this.customers.sort((customer1, customer2) => {
         //     if (customer1.firstName > customer2.firstName) {

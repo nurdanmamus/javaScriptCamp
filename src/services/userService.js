@@ -24,7 +24,8 @@ export default class UserService { //userService'i import ettiğimde default ola
     checkRequiredField(user, ...requiredFields) {
         // console.log(requiredFields)    
         for (const field of requiredFields) {
-            if (!user[field]) { 
+            //typeof value !== 'undefined' && value
+            if (typeof user[field]!=='undefined' && user[field]) {           
                 return this.errors.push(
                     new DataError(`Validation problem. ${field} is required`, user))
             } else {
