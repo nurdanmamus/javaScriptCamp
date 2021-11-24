@@ -16,7 +16,7 @@ export const users = [
         city:"Ankara",
         age: 36,
         creditCardNumber: "123456",
-        type: "customer"
+        type: "customer"    
     },
     {
         id: 2,  

@@ -32,6 +32,7 @@ console.log("------------")
 
 userService.loadForCustomer(users)   
 userService.listCustomers()  
+console.log(userService.errors)   
 //userService1.loadForEmployee(users) 
 
 //userService.checkTypes()     

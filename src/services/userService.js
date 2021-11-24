@@ -14,17 +14,17 @@ export default class UserService { //userService'i import ettiğimde default ola
     }
 
     checkForAge(user) {
-        if (!Number.isInteger(user.age)) {
-            return this.errors.push(new DataError(`Validation problem. ${user.age} is not a number`, user))
+        if (Number.isInteger(user.age)) {   
+           return true 
         } else {
-            return true
+            return this.errors.push(new DataError(`Validation problem. ${user.age} is not a number`, user))
         }
     }
 
     checkRequiredField(user, ...requiredFields) {
         // console.log(requiredFields)    
         for (const field of requiredFields) {
-            if (!user[field]) {
+            if (!user[field]) { 
                 return this.errors.push(
                     new DataError(`Validation problem. ${field} is required`, user))
             } else {
