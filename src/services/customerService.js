@@ -1,13 +1,15 @@
 import { users } from "../data/users.js";
 import DataError from "../models/dataError.js";
-import { CUSTOMER } from "../data/types.js"; 
+import { CUSTOMER, REQUARED_FIELD_FOR_CUSTOMER } from "../data/types.js"; 
 import UserService from "./userService.js";
 
 export default class customerService extends UserService{
     constructor(loggerService){
         this.errors = [] 
         this.customers = []
-        this.loggerService = loggerService  
+        this.types  = [CUSTOMER] 
+        this.requiredFields =  [REQUARED_FIELD_FOR_CUSTOMER]
+        this.loggerService = loggerService        
     }
  
     checkTypeForCustomer=(user)=>{   

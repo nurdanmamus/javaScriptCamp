@@ -7,7 +7,7 @@ export default class UserService { //userService'i import ettiğimde default ola
          this.users = []  
         // this.employees = []
        //  this.customers = []  
-        this.types  = [EMPLOYEE,CUSTOMER]
+       
         this.errors = []
         this.loggerService = loggerService 
         //  const yup = require("yup"); 
