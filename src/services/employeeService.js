@@ -16,7 +16,7 @@ export default class employeeService  extends UserService{
  
     checkTypeForEmployee(user){   s 
         //for (const user of users) {     
-            if (user["type"]===CUSTOMER) {        
+            if (user["type"]===EMPLOYEE) {         
                 //this.errors.push(new DataError("Wrong user type1", user));
                 //this.types.some(type=> type === 
                 return true;
