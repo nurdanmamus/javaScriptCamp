@@ -11,7 +11,7 @@ function findPrime(...numbers) {
         for(var j=2; j<sqrtnum+1; j++) { // sqrtnum+1
             if(numbers[i] % j == 0) {
                 prime = false;     
-                console.log(numbers[i] + isNotPrime)       
+                console.log(numbers[i] + isNotPrime)        
                 break;           
             }
         }         

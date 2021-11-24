@@ -11,7 +11,10 @@
   "license": "ISC",
   "dependencies": {
     "es6-module-loader": "^0.17.11",
-    "traceur": "0.0.108"
+    "express": "^4.17.1",
+    "react": "^17.0.2",
+    "traceur": "0.0.108",
+    "validate.js": "^0.13.1"
   },
   "devDependencies": {
     "lite-server": "^2.2.0"
