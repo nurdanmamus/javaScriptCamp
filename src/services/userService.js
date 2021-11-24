@@ -21,13 +21,16 @@ export default class UserService { //userService'i import ettiğimde default ola
         }
     } 
 
-    checkRequiredField(user,...requiredFields) {   
-      //  console.log(requiredFields)   
+    checkRequiredField(user,requiredFields) {        
+       // console.log(requiredFields)    
         for (const field of requiredFields) { 
-            if (!user[field]) {  
-                this.errors.push( 
+            if (!user[field]) {       
+               return this.errors.push( 
                     new DataError(`Validation problem. ${field} is required`, user))
+            }else{
+                return true   
             }
+                
         }   
         // if (!requiredFields.filter(field => user.hasOwnProperty(field))) { 
         //     this.errors.push(

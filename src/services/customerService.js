@@ -9,7 +9,7 @@ export default class customerService extends UserService{
         this.errors = [] 
         this.customers = []
         this.types  = [CUSTOMER] 
-        this.requiredFields =  [REQUARED_FIELD_FOR_CUSTOMER] 
+        this.requiredFields =  REQUARED_FIELD_FOR_CUSTOMER
         this.loggerService = loggerService  
               
     }
@@ -36,8 +36,8 @@ export default class customerService extends UserService{
 
     loadForCustomer(users){         
         for (const user of users) {
-            if (this.checkTypeForCustomer(user) && super.checkForAge(user)
-            && super.checkRequiredField(user,this.requiredFields)) {              
+            if (this.checkTypeForCustomer(user) && super.checkForAge(user)&&
+             super.checkRequiredField(user,this.requiredFields)) {               
                 this.addCustomer(user)  
             }           
         }
